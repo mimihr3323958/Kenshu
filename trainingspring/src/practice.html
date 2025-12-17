@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="UTF-8">
+<!--Thymeleafの宣言-->
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<!--変数の値を取得し、テキストに変換-->
+
+<p th:text="${sample}"></p>
+<!--オブジェクト名を省略してフィールド名のみ記述-->
+<form th:action="@{/}" th:object="${otoiawase}" method="post" novalidate>
+	
+<!--input要素のid属性、name属性、value属性をHTMLに出力-->
+<input type="text" th:field="*{name}"><br>
+
+<!--変数を埋め込む-->
+<from></from> th:action="@{/}" th:object="${otoiawase}" method="post" novalidate>
+<!--エラー時にエラーメッセージ-->
+<div clas="invalid-feedback" th:errors="*{name}"></div>	
+<!--staticフォルダを起点としたパスとして解釈-->
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+<!--テキストの埋め込み-->
+<h4 class="border-bottomy-3" th:text="#{contents}"></h4>
+
+</from></from>
+</from>
+<!--オブジェクト名を省略してフィールド名のみ記載-->
+<div class="invalid-feedback" th:errors="*{name}"></div>
+
+<!--エラー発生時にclass属性にstyleを付与できる-->
+<input type="text" class="form-control" th:errorclass="is-invalid" placeholder="taro" th:field="*{name}">
+
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
