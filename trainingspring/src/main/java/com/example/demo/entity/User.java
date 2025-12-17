@@ -49,4 +49,4 @@ public class User {
 	@Column(name = "delete_date")
 	private Date deleteDate;
 
-}aaS
+}
