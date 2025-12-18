@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.dto.UserRequest;
+import com.example.demo.dto.UserUpdateRequest;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 
@@ -26,15 +26,17 @@ public class UserService {
 	
 	//ユーザー新規登録
 	
-	public void create(UserRequest userRequest) {
-		Date now = new Date();
-		User user = new User();
-		user.setName(userRequest.getName());
-		user.setAddress(userRequest.getAddress());
-		user.setPhone(userRequest.getPhone());
-		user.setCreateDate(now);
-		user.setUpdateDate(now);
-		userRepository.save(user);
+	  public User findById(Long id) {
+		    return userRepository.findById(id).get();
+		  }
+	
+	  public void update(UserUpdateRequest userUpdateRequest) {
+		    User user = findById(userUpdateRequest.getId());
+		    user.setAddress(userUpdateRequest.getAddress());
+		    user.setName(userUpdateRequest.getName());
+		    user.setPhone(userUpdateRequest.getPhone());
+		    user.setUpdateDate(new Date());
+		    userRepository.save(user);
 		
 	}
 
