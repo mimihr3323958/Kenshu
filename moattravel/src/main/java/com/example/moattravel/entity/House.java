@@ -30,11 +30,17 @@ public class House {
 	@Column(name = "description")
 	private String description;
 	
+	@Column(name = "price")
+	private Integer price;
+	
 	@Column(name = "capacity")
 	private Integer capacity;
 	
 	@Column(name = "postal_code")
 	private String postalCode;
+	
+	@Column(name = "address")
+	private String address;
 	
 	@Column(name = "phone_number")
 	private String phoneNumber;
