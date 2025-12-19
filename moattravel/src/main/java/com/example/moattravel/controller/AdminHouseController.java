@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +30,7 @@ public class AdminHouseController {
 
 	@GetMapping
 		
-		public String index(Model model,Pageable pageable) {
-			
+		public String index(Model model,@PageableDefault(page = 0,size = 10,sort = "id",direction =Sort. Direction.ASC) Pageable pageable) {
 	
 		List<House>houses = houseRepository.findAll();
 		Page<House>housePage = houseRepository.findAll(pageable);
