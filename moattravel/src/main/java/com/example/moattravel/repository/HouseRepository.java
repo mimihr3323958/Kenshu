@@ -1,8 +1,7 @@
 package com.example.moattravel.repository;
 
-import java.awt.print.Pageable;
-
-import org.hibernate.query.Page;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.moattravel.entity.House;

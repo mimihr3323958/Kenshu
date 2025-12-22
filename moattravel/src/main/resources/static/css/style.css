@@ -93,6 +93,11 @@ footer {
 
 }
 
+.moattravel-pre-wrap {
+	/* 改行文字で行を折り返す */
+	white-space: pre-wrap;
+}
+
 
 
 
