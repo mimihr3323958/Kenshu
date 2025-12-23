@@ -22,6 +22,7 @@ import com.example.moattravel.form.HouseRegisterForm;
 import com.example.moattravel.repository.HouseRepository;
 import com.example.moattravel.service.HouseService;
 
+
 @Controller
 
 @RequestMapping("/admin/houses")
@@ -117,15 +118,26 @@ public class AdminHouseController {
 	
 	@PostMapping("/{id}/update")
 	
-	public String update(@ModelAttribute@Validated HouseEditForm houseEditForm,BindingResult bindingResult,RedirectAttributes redirectAttributes) {
+	public String update(@ModelAttribute @Validated HouseEditForm houseEditForm,BindingResult bindingResult,RedirectAttributes redirectAttributes) {
 		
 		if(bindingResult.hasErrors()){
-			return "adomin/houses/edit";
+			return "admin/houses/edit";
 		}
 		
 		houseService.update(houseEditForm);
 		
-		redirectAttributes.addAttribute("successMessage","民宿情報を編集しました。");
+		redirectAttributes.addFlashAttribute("successMessage","民宿情報を編集しました。");
+		
+		return "redirect:/admin/houses";
+	}
+	
+	@PostMapping("/{id}/delete")
+	
+	public String delete(@PathVariable(name = "id")Integer id,RedirectAttributes redirectAttributes) {
+		
+		houseRepository.deleteById(id);
+		
+		redirectAttributes.addFlashAttribute("successMessage","民宿を削除しました。");
 		
 		return "redirect:/admin/houses";
 	}
