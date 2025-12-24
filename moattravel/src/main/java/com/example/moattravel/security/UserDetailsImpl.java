@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.moattravel.entity.User;
 
+
 public class UserDetailsImpl implements UserDetails {
 				
 		private final User user;

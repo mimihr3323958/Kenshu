@@ -35,6 +35,8 @@ public class WebSecurityConfig {
 				.formLogin((form) -> form//ログインページのURL
 						.loginPage("/login")//ログインフォームの送信先URL
 						.loginProcessingUrl("/login")//ログインフォーム
+					    .usernameParameter("email")
+					    .passwordParameter("password")  
 						.defaultSuccessUrl("/?loggedIn", true)//ログイン字のリダイレクト先URL
 						.failureUrl("/login?error")//ログイン失敗時のダイレクト先
 
