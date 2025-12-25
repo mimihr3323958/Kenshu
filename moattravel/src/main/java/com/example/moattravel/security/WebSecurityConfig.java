@@ -29,7 +29,10 @@ public class WebSecurityConfig {
 						        "/signup/verify",
 						        "/css/**",
 						        "/js/**",
-						        "/images/**").permitAll()
+						        "/images/**",
+						        "/storage/**",
+						        "/houses",
+						        "/houses/**").permitAll()
 						//すべてのユーザーにアクセスを許可するURL
 
 						.requestMatchers("/admin/**").hasRole("ADMIN")
