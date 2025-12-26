@@ -32,7 +32,8 @@ public class WebSecurityConfig {
 						        "/images/**",
 						        "/storage/**",
 						        "/houses",
-						        "/houses/**").permitAll()
+						        "/houses/**",
+						        "/houses/{id}").permitAll()
 						//すべてのユーザーにアクセスを許可するURL
 
 						.requestMatchers("/admin/**").hasRole("ADMIN")
